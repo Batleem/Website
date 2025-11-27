@@ -47,7 +47,7 @@ const dictionary = {
         proj_2_title: "Piratis (Moteur de Jeu)",
         proj_2_date: "Printemps 2024",
         proj_2_context: "IUT Annecy",
-        proj_2_desc: "Développement d'un clone de Tetris en C/C++. Implémentation bas niveau : gestion de la grille logique, détection de collisions, système de score et interface graphique.",
+        proj_2_desc: "Développement d'un clone de Tetris en C#. Implémentation bas niveau : gestion de la grille logique, détection de collisions, système de score et interface graphique.",
 
         // PROJET 3
         proj_3_title: "Loxam Gestion (WPF)",
