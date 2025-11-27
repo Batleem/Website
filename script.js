@@ -1,8 +1,38 @@
+/* =========================================
+   1. CONFIGURATION & DONNÉES
+   ========================================= */
 
-const cvLinks = {
+   const cvLinks = {
     fr: "cv.pdf",
     en: "cvAnglais.pdf"
 };
+
+// Variable pour stocker le HTML des compétences en Français (Badges)
+let originalFrSkillsHTML = "";
+
+// Données pour les barres de compétences (Mode Anglais uniquement)
+const englishSkillsData = [
+    {
+        title: "Development",
+        icon: "fas fa-code",
+        skills: [
+            { name: "C# / .NET", percent: 90 },
+            { name: "Python", percent: 75 },
+            { name: "C / C++", percent: 70 },
+            { name: "JavaScript", percent: 65 }
+        ]
+    },
+    {
+        title: "System & Data",
+        icon: "fas fa-database",
+        skills: [
+            { name: "SQL / PostgreSQL", percent: 85 },
+            { name: "Linux / Debian", percent: 75 },
+            { name: "Git / GitHub", percent: 80 },
+            { name: "Bash", percent: 60 }
+        ]
+    }
+];
 
 const dictionary = {
     fr: {
@@ -63,11 +93,9 @@ const dictionary = {
         exp_2_d1: "Découverte de l'environnement de développement logiciel",
         exp_2_d2: "Documentation technique et tests simples",
 
-        // --- REFERENCES (FR) ---
         title_ref: "Références",
         ref_1_role: "Enseignant UML et SQL",
         ref_2_role: "Maître de conférences SQL et POO",
-        // -----------------------
 
         title_contact: "Contact",
         contact_text: "Mon inbox est toujours ouverte. Que ce soit pour une opportunité ou juste pour dire bonjour, je ferai de mon mieux pour vous répondre !"
@@ -102,19 +130,16 @@ const dictionary = {
         proj_type_academic: "Academic Project",
         proj_type_personal: "Personal Project",
 
-        // PROJECT 1
         proj_1_title: "Web App & Database",
         proj_1_date: "Jan - Mar 2025",
         proj_1_context: "Annecy University",
         proj_1_desc: "Full-stack web application design. From PostgreSQL DB modeling to dynamic JS frontend. Focus on collaborative workflows (Git) and code quality.",
 
-        // PROJECT 2
         proj_2_title: "Piratis (Game Engine)",
         proj_2_date: "Spring 2024",
         proj_2_context: "Annecy University",
         proj_2_desc: "Development of a Tetris clone in C/C++. Low-level implementation: logic grid management, collision detection, scoring system, and graphical interface.",
 
-        // PROJECT 3
         proj_3_title: "Loxam Management (WPF)",
         proj_3_date: "2024",
         proj_3_context: "Annecy University",
@@ -130,49 +155,135 @@ const dictionary = {
         exp_2_d1: "Discovered the work environment of a software development team",
         exp_2_d2: "Assisted with documentation and simple testing",
 
-        // --- REFERENCES (EN) ---
         title_ref: "References",
-        ref_1_role: "UML and SQL teacher", // [cite: 45]
-        ref_2_role: "SQL and OOP associate professor", // [cite: 50]
-        // -----------------------
+        ref_1_role: "UML and SQL teacher",
+        ref_2_role: "SQL and OOP associate professor",
 
         title_contact: "Get In Touch",
         contact_text: "My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!"
     }
 };
 
+/* =========================================
+   2. FONCTIONS LOGIQUES
+   ========================================= */
+
+// Générateur HTML pour les barres de compétences (Mode EN)
+function generateEnglishSkills() {
+    return englishSkillsData.map(cat => `
+        <div class="skill-card">
+            <div class="skill-icon"><i class="${cat.icon}"></i></div>
+            <h4>${cat.title}</h4>
+            <div class="skill-bars-container">
+                ${cat.skills.map(skill => `
+                    <div class="skill-bar-item">
+                        <div class="skill-info">
+                            <span>${skill.name}</span>
+                            <span class="skill-percent">${skill.percent}%</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `).join('');
+}
+
+// Fonction principale de changement de langue
 function setLanguage(lang) {
     if (!dictionary[lang]) return;
     
+    // 1. Mise à jour des textes simples
     const keys = Object.keys(dictionary[lang]);
     keys.forEach(key => {
         const el = document.querySelector(`[data-i18n="${key}"]`);
         if (el) el.innerHTML = dictionary[lang][key];
     });
 
+    // 2. Mise à jour du lien CV
     const cvBtn = document.getElementById('cv-btn');
     if (cvBtn) cvBtn.href = cvLinks[lang];
 
+    // 3. Mise à jour visuelle des boutons (Active state)
     document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
     const activeBtn = document.getElementById(`btn-${lang}`);
     if (activeBtn) activeBtn.classList.add('active');
+
+    // 4. LOGIQUE SPÉCIALE COMPÉTENCES (Badges vs Barres)
+    const skillsContainer = document.querySelector('.skills-grid');
+    if (skillsContainer) {
+        if (lang === 'en') {
+            // A. Injection des barres
+            skillsContainer.innerHTML = generateEnglishSkills();
+            
+            // B. Animation des barres (0% -> X%)
+            setTimeout(() => {
+                // On récupère toutes les barres qu'on vient de créer
+                const bars = skillsContainer.querySelectorAll('.progress-fill');
+                // On boucle sur chaque barre pour lui donner sa bonne largeur
+                let cardIndex = 0;
+                englishSkillsData.forEach(cat => {
+                    cat.skills.forEach(skill => {
+                        // On trouve la barre correspondante dans le DOM (approximation par ordre)
+                        // Une méthode plus robuste serait de le faire par index global, 
+                        // mais ici l'ordre d'injection est linéaire.
+                        // On va simplement itérer sur la NodeList 'bars'
+                    });
+                });
+                
+                // Application des largeurs correctes
+                let globalIndex = 0;
+                englishSkillsData.forEach(cat => {
+                    cat.skills.forEach(skill => {
+                        if(bars[globalIndex]) {
+                            bars[globalIndex].style.width = `${skill.percent}%`;
+                        }
+                        globalIndex++;
+                    });
+                });
+
+            }, 50); // Petit délai pour permettre au navigateur de rendre le DOM avant d'animer
+
+        } else {
+            // Retour au mode Français (Badges)
+            if (originalFrSkillsHTML) {
+                skillsContainer.innerHTML = originalFrSkillsHTML;
+            }
+        }
+    }
 }
 
+/* =========================================
+   3. INITIALISATION (DOM READY)
+   ========================================= */
+
 document.addEventListener('DOMContentLoaded', () => {
+    
+    // A. Sauvegarde de l'état initial des compétences (Français / Badges)
+    const skillsContainer = document.querySelector('.skills-grid');
+    if (skillsContainer) {
+        originalFrSkillsHTML = skillsContainer.innerHTML;
+    }
+
+    // B. Event Listeners pour les boutons de langue
     const btnFr = document.getElementById('btn-fr');
     const btnEn = document.getElementById('btn-en');
 
     if(btnFr) btnFr.addEventListener('click', () => setLanguage('fr'));
     if(btnEn) btnEn.addEventListener('click', () => setLanguage('en'));
 
+    // C. Année dynamique footer
     const yearSpan = document.getElementById('year');
     if(yearSpan) yearSpan.textContent = new Date().getFullYear();
 
+    // D. Gestion de l'Intro Overlay & Logo
     const introOverlay = document.getElementById('intro-overlay');
     const navLogo = document.getElementById('nav-logo');
     const body = document.body;
 
-    body.style.overflow = 'hidden';
+    body.style.overflow = 'hidden'; // Empêcher le scroll pendant l'intro
     
     if(navLogo) {
         navLogo.style.opacity = '0';
@@ -184,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
             introOverlay.classList.add('hidden');
             setTimeout(() => introOverlay.style.display = 'none', 800);
         }
-        body.style.overflow = 'auto';
+        body.style.overflow = 'auto'; // Réactiver le scroll
         if(navLogo) {
             setTimeout(() => {
                 navLogo.style.opacity = '1';
@@ -192,6 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 2200);
 
+    // E. Background Canvas Animation (Particules)
     const canvas = document.getElementById("bg-canvas");
     if (canvas) {
         const ctx = canvas.getContext("2d");
@@ -229,7 +341,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ctx.fill();
             }
         }
+        // Création de 40 particules
         for(let k=0; k<40; k++) particles.push(new Particle());
+        
         function animate() {
             ctx.clearRect(0, 0, w, h);
             particles.forEach(p => { p.update(); p.draw(); });
