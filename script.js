@@ -1,6 +1,4 @@
-// ==========================================
-//  CONFIGURATION & TRADUCTIONS
-// ==========================================
+
 const cvLinks = {
     fr: "cv.pdf",
     en: "cvAnglais.pdf"
