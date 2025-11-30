@@ -18,7 +18,7 @@ const englishSkillsData = [
         skills: [
             { name: "C# / .NET", percent: 90 },
             { name: "Python", percent: 75 },
-            { name: "C / C++", percent: 70 },
+            { name: "HTML/CSS", percent: 70 },
             { name: "JavaScript", percent: 65 }
         ]
     },
@@ -43,7 +43,7 @@ const dictionary = {
         btn_contact: "Me Contacter", btn_projects: "Voir Projets",
         
         title_profile: "Profil",
-        text_profile: "Actuellement étudiant en 2ème année de BUT Informatique (Parcours BD & IA), je cherche un STAGE. Passionné par le bas niveau (C/C++) et l'optimisation, je veux concevoir des systèmes intelligents.",
+        text_profile: "Étudiant en 2ème année de BUT Informatique (Parcours Data & IA), je cherche un stage de 10 à 12 semaines (Printemps 2026). Le développement est pour moi une véritable passion : j'aime passer mon temps libre à coder des scripts d'automatisation en Python, à explorer des architectures logicielles propres et à découvrir de nouveaux frameworks. Curieux et autonome, je suis prêt à m'investir à 100% dans vos projets.",
         
         title_lang: "Langues",
         lang_fr: "Français", lang_en: "Anglais", lang_es: "Espagnol", lang_cn: "Chinois",
@@ -56,6 +56,12 @@ const dictionary = {
         edu_1_school: "Université Savoie Mont-Blanc / IUT d'Annecy",
         edu_1_desc: "Parcours Base de Données et IA",
         
+        // --- NOUVELLE ENTRÉE ENIB ---
+        edu_enib_title: "Cycle Préparatoire Ingénieur",
+        edu_enib_date: "2023 - 2024",
+        edu_enib_school: "ENIB - École Nationale d'Ingénieurs de Brest",
+        edu_enib_desc: "1ère année généraliste : Mathématiques, Physique et Algorithmique.",
+
         edu_2_title: "Baccalauréat Général",
         edu_2_date: "2020 - 2023",
         edu_2_school: "Lycée Jean-Macé - Rennes",
@@ -65,11 +71,11 @@ const dictionary = {
         proj_type_academic: "Projet Universitaire",
         proj_type_personal: "Projet Personnel",
         
-        // PROJET 1
-        proj_1_title: "App Web & Base de Données",
+        // PROJET 1 (Mis à jour avec Laravel)
+        proj_1_title: "Clone Leboncoin (Laravel)",
         proj_1_date: "Jan - Mar 2025",
         proj_1_context: "IUT Annecy",
-        proj_1_desc: "Conception complète d'une application web. De la modélisation de la BDD PostgreSQL à l'interface dynamique en JS. Focus sur le travail collaboratif et la qualité du code.",
+        proj_1_desc: "Développement Fullstack d'une plateforme de petites annonces. Conception rigoureuse de la BDD (MCD/MLD), implémentation backend Laravel (PHP) et frontend dynamique.",
 
         // PROJET 2
         proj_2_title: "Piratis (Moteur de Jeu)",
@@ -81,7 +87,18 @@ const dictionary = {
         proj_3_title: "Loxam Gestion (WPF)",
         proj_3_date: "2024",
         proj_3_context: "IUT Annecy",
-        proj_3_desc: "Application lourde développée en architecture MVVM (simplifiée). Reproduction des fonctionnalités métiers de Loxam : CRUD matériel, gestion stocks et interface utilisateur XAML.",
+        proj_3_desc: "Application lourde développée en architecture MVVM (simplifiée). Reproduction des fonctionnalités métiers de Loxam : CRUD matériel, gestion stocks et UI XAML.",
+
+        // PROJET AMAZON (Nouveau)
+        proj_amazon_title: "Analyse Données Amazon",
+        proj_amazon_date: "2024",
+        proj_amazon_context: "Projet Personnel",
+        proj_amazon_desc: "Ingestion et nettoyage d'un fichier CSV de best-sellers. Algorithmes de tri, filtrage par catégories et analyse exploratoire des données avec Pandas.",
+
+        proj_site_title: "Portfolio Interactif",
+        proj_site_date: "2025",
+        proj_site_context: "Projet Personnel",
+        proj_site_desc: "Conception de ce site 'From Scratch'. Architecture sans framework (Vanilla JS) pour la performance. Gestionnaire de traduction maison et animations Canvas.",
 
         title_exp: "Expérience",
         exp_1_role: "Projet Universitaire - USMB",
@@ -108,7 +125,7 @@ const dictionary = {
         btn_contact: "Contact Me", btn_projects: "See Projects",
         
         title_profile: "Profile",
-        text_profile: "Currently a 2nd-year CS student (Data & AI), I am looking for an INTERNSHIP. Passionate about low-level dev (C/C++) and AI integration, I aim to build intelligent and efficient systems.",
+        text_profile: "As a 2nd-year CS student (Data & AI path), I am actively seeking a 10-12 week internship for spring 2026. Coding is more than a major to me; it is a passion. In my spare time, I enjoy building Python automation scripts, designing clean software architectures, and exploring new tech stacks. I am eager to bring this curiosity and drive to your team.",
         
         title_lang: "Languages",
         lang_fr: "French", lang_en: "English", lang_es: "Spanish", lang_cn: "Chinese",
@@ -121,6 +138,12 @@ const dictionary = {
         edu_1_school: "University of Savoy - IUT Annecy",
         edu_1_desc: "Specializing in Data Administration and AI",
 
+        // --- NEW ENIB ENTRY ---
+        edu_enib_title: "Engineering Prep Cycle",
+        edu_enib_date: "2023 - 2024",
+        edu_enib_school: "ENIB - Brest National Engineering School",
+        edu_enib_desc: "1st year: Mathematics, Physics and Computer Science fundamentals.",
+
         edu_2_title: "French Baccalaureate",
         edu_2_date: "2020 - 2023",
         edu_2_school: "Lycée Jean-Macé - Rennes",
@@ -130,20 +153,31 @@ const dictionary = {
         proj_type_academic: "Academic Project",
         proj_type_personal: "Personal Project",
 
-        proj_1_title: "Web App & Database",
+        proj_1_title: "Leboncoin Clone (Laravel)",
         proj_1_date: "Jan - Mar 2025",
         proj_1_context: "Annecy University",
-        proj_1_desc: "Full-stack web application design. From PostgreSQL DB modeling to dynamic JS frontend. Focus on collaborative workflows (Git) and code quality.",
+        proj_1_desc: "Full-stack development of a classifieds platform. Rigorous DB design (ERD/Logical Model), Laravel (PHP) backend implementation, and dynamic frontend.",
 
         proj_2_title: "Piratis (Game Engine)",
         proj_2_date: "Spring 2024",
         proj_2_context: "Annecy University",
-        proj_2_desc: "Development of a Tetris clone in C/C++. Low-level implementation: logic grid management, collision detection, scoring system, and graphical interface.",
+        proj_2_desc: "Development of a Tetris clone in C#. Low-level implementation: logic grid management, collision detection, scoring system, and graphical interface.",
 
         proj_3_title: "Loxam Management (WPF)",
         proj_3_date: "2024",
         proj_3_context: "Annecy University",
         proj_3_desc: "Desktop application developed with .NET/WPF. Reproduction of Loxam's business features: Equipment CRUD, inventory management, and XAML UI design.",
+
+        // PROJET AMAZON (New)
+        proj_amazon_title: "Amazon Data Analysis",
+        proj_amazon_date: "2024",
+        proj_amazon_context: "Personal Project",
+        proj_amazon_desc: "Ingestion and cleaning of a bestsellers CSV dataset. Sorting algorithms, category filtering, and exploratory data analysis using Pandas.",
+
+        proj_site_title: "Interactive Portfolio",
+        proj_site_date: "2025",
+        proj_site_context: "Personal Project",
+        proj_site_desc: "Design of this website from scratch. Framework-free architecture (Vanilla JS) for performance. Custom translation handler and Canvas animations.",
 
         title_exp: "Experience",
         exp_1_role: "University Project - USMB",
