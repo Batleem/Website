@@ -104,6 +104,83 @@ canvas#bg-canvas {
 }
 .btn-secondary:hover { border-color: var(--text-muted); transform: translateY(-3px); }
 
+.btn-github-access {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espace entre texte et icône */
+    
+    padding: 8px 16px; /* Un peu plus grand pour être plus lisible */
+    margin-left: 10px;
+    
+    border: 1px solid var(--accent); /* Le contour vert */
+    border-radius: 4px; /* Coins légèrement arrondis */
+    
+    color: var(--accent); /* Texte vert par défaut */
+    background: transparent;
+    
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1;
+}
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colonnes */
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Ligne de séparation subtile */
+}
+
+.interest-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.interest-item:hover {
+    color: var(--text-main);
+    transform: translateX(5px);
+}
+
+.interest-item i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    width: 20px; /* Largeur fixe pour aligner le texte */
+    text-align: center;
+}
+
+/* Petit ajustement pour mobile : 1 seule colonne si l'écran est petit */
+@media (max-width: 600px) {
+    .interests-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* L'effet au survol */
+.btn-github-access:hover {
+    
+    color: var(--bg-main); /* Le texte devient foncé (pour le contraste) */
+    box-shadow: 0 0 15px rgba(74, 222, 128, 0.5); /* Effet néon lumineux */
+    transform: translateY(-2px); /* Le bouton remonte légèrement */
+}
+
+/* Petite animation sur l'icône au survol */
+.btn-github-access:hover i {
+    transform: scale(1.1); /* L'icône grossit un tout petit peu */
+}
 .social-links { margin-top: 50px; font-size: 1.6rem; display: flex; gap: 25px; }
 .social-links a { color: var(--text-muted); }
 .social-links a:hover { color: var(--accent); transform: translateY(-3px); }
@@ -154,16 +231,19 @@ canvas#bg-canvas {
 /* =========================================
    PORTFOLIO (RAPPROCHÉ ET AÉRÉ VERTICALEMENT)
    ========================================= */
-.project-grid { 
-    display: grid; 
-    /* Force 3 colonnes égales */
-    grid-template-columns: repeat(3, 1fr); 
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     
-    /* GESTION FINE DES ESPACES */
-    column-gap: 30px; /* Rapproché horizontalement (plus beau) */
-    row-gap: 120px;   /* Éloigné verticalement (zéro chevauchement) */
+    /* AJOUTE CETTE LIGNE : */
+    grid-auto-rows: auto; /* Force la ligne à s'agrandir selon le contenu */
     
+    column-gap: 30px;
+    row-gap: 120px;
     width: 100%;
+    
+    /* Sécurité supplémentaire : évite que ça déborde */
+    height: auto; 
 }
 
 .project-card {
@@ -336,3 +416,83 @@ canvas#bg-canvas {
     .project-card { padding: 1.5rem; }
     .btn-primary, .btn-secondary { width: 100%; text-align: center; }
 }
+
+.hamburger {
+    display: none; /* Caché sur PC */
+}
+
+.mobile-menu {
+    display: none; /* IMPORTANT : Empêche le texte d'apparaître en double sur PC */
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(14, 20, 18, 0.98);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--accent-dim);
+    padding: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    transform: translateY(-150%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 99;
+}
+
+/* Classe ajoutée par le JS pour ouvrir le menu */
+.mobile-menu.open {
+    transform: translateY(0);
+}
+
+.mobile-link {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--text-main);
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* 2. ÉCRANS MOYENS & MOBILES (TABLETTE/TÉLÉPHONE) */
+@media (max-width: 900px) {
+    
+    /* On CACHE le menu classique */
+    .desktop-only { 
+        display: none !important; 
+    } 
+
+    /* On AFFICHE le bouton hamburger */
+    .hamburger { 
+        display: flex; 
+        cursor: pointer;
+        flex-direction: column;
+        gap: 5px;
+        z-index: 101;
+    }
+
+    /* On active la structure du menu mobile (il reste caché par le transform tant qu'on ne clique pas) */
+    .mobile-menu {
+        display: flex; 
+    }
+    
+    /* Ajustement des styles hamburger */
+    .hamburger .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--accent);
+        transition: all 0.3s ease;
+        border-radius: 2px;
+    }
+    
+    /* Animation Croix */
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Ajustement grille générale */
+    .container { padding: 0 25px; }
+    .grid-2-col { grid-template-columns: 1fr; gap: 40px; }
+    .project-grid { grid-template-columns: 1fr; row-gap: 60px; }
+}
+

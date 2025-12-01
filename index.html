@@ -27,24 +27,45 @@
 
     <header class="topbar">
         <nav class="nav-full">
-            <div class="logo" id="nav-logo" style="opacity: 0;">
+            <div class="logo" id="nav-logo">
                 <span class="smiley-code">&lt;/&gt;</span> Martin Nosland<span class="cursor">_</span>
             </div>
             
-            <ul class="nav-links">
+            <ul class="nav-links desktop-only">
                 <li><a href="#profile" data-i18n="nav_profile">Profil</a></li>
                 <li><a href="#skills" data-i18n="nav_skills">Compétences</a></li>
                 <li><a href="#education" data-i18n="nav_edu">Formation</a></li>
                 <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
                 <li><a href="#experience" data-i18n="nav_exp">Expérience</a></li>
-                <li><a href="#references" data-i18n="nav_ref">Références</a></li> </ul>
+                <li><a href="#references" data-i18n="nav_ref">Références</a></li>
+            </ul>
 
-            <div class="lang-switch">
+            <div class="lang-switch desktop-only">
                 <button id="btn-fr" class="lang-btn active">FR</button>
                 <span class="separator">/</span>
                 <button id="btn-en" class="lang-btn">EN</button>
             </div>
+
+            <div class="hamburger" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#profile" class="mobile-link" data-i18n="nav_profile">Profil</a>
+            <a href="#skills" class="mobile-link" data-i18n="nav_skills">Compétences</a>
+            <a href="#education" class="mobile-link" data-i18n="nav_edu">Formation</a>
+            <a href="#portfolio" class="mobile-link" data-i18n="nav_portfolio">Portfolio</a>
+            <a href="#experience" class="mobile-link" data-i18n="nav_exp">Expérience</a>
+            <a href="#references" class="mobile-link" data-i18n="nav_ref">Références</a>
+            
+            <div class="mobile-lang-switch">
+                <button id="mob-btn-fr" class="lang-btn active">FR</button>
+                <button id="mob-btn-en" class="lang-btn">EN</button>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -62,7 +83,7 @@
                 <div class="social-links">
                     <a href="https://github.com/Batleem" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="mailto:martin.nosland@etu.univ-smb.fr"><i class="fas fa-envelope"></i></a>
-                    <a href="www.linkedin.com/in/martin-nosland" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/martin-nosland/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </section>
@@ -74,7 +95,27 @@
                     <p data-i18n="text_profile">
                         Étudiant en 2ème année de BUT Informatique (Parcours Data & IA), je cherche un stage de 10 à 12 semaines (Printemps 2026). Le développement est pour moi une véritable passion : j'aime passer mon temps libre à coder des scripts d'automatisation en Python, à explorer des architectures logicielles propres et à découvrir de nouveaux frameworks. Curieux et autonome, je suis prêt à m'investir à 100% dans vos projets.
                     </p>
+
+                    <div class="interests-grid">
+                        <div class="interest-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <span data-i18n="interest_dev">Dev & Tech</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-book-open"></i>
+                            <span data-i18n="interest_manga">Manga (20th Century Boys)</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-running"></i>
+                            <span data-i18n="interest_sport">Course à pied</span>
+                        </div>
+                        <div class="interest-item">
+                            <i class="fas fa-music"></i>
+                            <span data-i18n="interest_music">Piano</span>
+                        </div>
+                    </div>
                 </div>
+                
                 <div class="languages-box">
                     <h4 data-i18n="title_lang">Langues</h4>
                     <ul class="lang-list">
@@ -98,6 +139,7 @@
                         <span class="badge">Python</span>
                         <span class="badge">bash</span>
                         <span class="badge">JavaScript</span>
+                        <span class="badge">PHP / Laravel</span>
                     </div>
                 </div>
                 <div class="skill-card">
@@ -147,160 +189,155 @@
         </section>
 
         <section id="portfolio" class="panel container">
-    <h3 class="section-header"><span class="hash">04.</span> <span data-i18n="title_portfolio">Projets</span></h3>
-    <div class="project-grid">
+            <h3 class="section-header"><span class="hash">04.</span> <span data-i18n="title_portfolio">Projets</span></h3>
+            <div class="project-grid">
 
-        <article class="project-card">
-            <header>
-                <div class="card-top">
-                    <div class="folder-icon"><i class="far fa-folder-open"></i></div>
-                    <div class="project-links">
-                        <a href="https://github.com/Batleem/SAE301_LeBonCoin" aria-label="Lien Github" target="_blank"><i class="fab fa-github"></i></a>
+                <article class="project-card">
+                    <header>
+                        <div class="card-top">
+                            <div class="folder-icon"><i class="far fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/Batleem/SAE301_LeBonCoin" class="btn-github-access" target="_blank">
+                                    <span data-i18n="btn_access">Accéder</span> <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 data-i18n="proj_1_title">Clone Leboncoin</h4>
+                        <div class="project-meta">
+                            <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_1_date">Nov 2025 - actif</span></span>
+                            <span class="meta-item"><i class="fas fa-university"></i> <span data-i18n="proj_1_context">USMB (SAE)</span></span>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <p class="project-type-label" data-i18n="proj_type_academic">Projet Académique</p>
+                        <p data-i18n="proj_1_desc">Plateforme de petites annonces type Leboncoin. Backend Laravel et modélisation SQL.</p>
                     </div>
-                </div>
-                <h4 data-i18n="proj_1_title">Clone Leboncoin</h4>
+                    <footer>
+                        <ul class="tech-stack-list">
+                            <li>Laravel (PHP)</li>
+                            <li>SQL / PostgreSQL</li>
+                            <li>MCD / MLD</li>
+                            <li>Fullstack</li>
+                        </ul>
+                    </footer>
+                </article>
+
+                <article class="project-card">
+                    <header>
+                        <div class="card-top">
+                            <div class="folder-icon"><i class="far fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/Ianounou/Piranatetris-c-est-le-vrai-" class="btn-github-access" target="_blank">
+                                    <span data-i18n="btn_access">Accéder</span> <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 data-i18n="proj_2_title">Piratis</h4>
+                        <div class="project-meta">
+                            <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_2_date">Décembre 2024</span></span>
+                            <span class="meta-item"><i class="fas fa-university"></i> <span data-i18n="proj_2_context">USMB (SAE)</span></span>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <p class="project-type-label" data-i18n="proj_type_academic">Projet Académique</p>
+                        <p data-i18n="proj_2_desc">Réinterprétation du jeu Tetris en C++. Gestion mémoire manuelle, collisions et logique de grille.</p>
+                    </div>
+                    <footer>
+                        <ul class="tech-stack-list">
+                            <li>C#</li>
+                            <li>Algorithmique</li>
+                        </ul>
+                    </footer>
+                </article>
                 
-                <div class="project-meta">
-                    <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_1_date">2025</span></span>
-                    <span class="meta-item"><i class="fas fa-university"></i> <span data-i18n="proj_1_context">USMB (SAE)</span></span>
-                </div>
-            </header>
-
-            <div class="card-body">
-                <p class="project-type-label" data-i18n="proj_type_academic">Projet Académique</p>
-                <!-- La description sera chargée via JS -->
-                <p data-i18n="proj_1_desc">Plateforme de petites annonces type Leboncoin. Backend Laravel et modélisation SQL.</p>
-            </div>
-
-            <footer>
-                <ul class="tech-stack-list">
-                    <li>Laravel (PHP)</li>
-                    <li>SQL / PostgreSQL</li>
-                    <li>MCD / MLD</li>
-                    <li>Fullstack</li>
-                </ul>
-            </footer>
-        </article>
-
-        <article class="project-card">
-            <header>
-                <div class="card-top">
-                    <div class="folder-icon"><i class="far fa-folder-open"></i></div>
-                    <div class="project-links">
-                        <a href="https://github.com/Ianounou/Piranatetris-c-est-le-vrai-" target="_blank"><i class="fab fa-github"></i></a>
+                <article class="project-card">
+                    <header>
+                        <div class="card-top">
+                            <div class="folder-icon"><i class="far fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/scassen/SAE_201_LOXAM" class="btn-github-access" target="_blank">
+                                    <span data-i18n="btn_access">Accéder</span> <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 data-i18n="proj_3_title">Gestion Loxam</h4>
+                        <div class="project-meta">
+                            <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_3_date">Mai - Juin 2025</span></span>
+                            <span class="meta-item"><i class="fas fa-university"></i> <span data-i18n="proj_3_context">USMB (SAE)</span></span>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <p class="project-type-label" data-i18n="proj_type_academic">Projet Académique</p>
+                        <p data-i18n="proj_3_desc">Application lourde (Desktop) connectée. Architecture en couches et liaison de données (Data Binding).</p>
                     </div>
-                </div>
-                <h4 data-i18n="proj_2_title">Piratis</h4>
-                
-                <div class="project-meta">
-                    <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_2_date">2024</span></span>
-                    <span class="meta-item"><i class="fas fa-university"></i> <span data-i18n="proj_2_context">USMB (SAE)</span></span>
-                </div>
-            </header>
+                    <footer>
+                        <ul class="tech-stack-list">
+                            <li>C# .NET</li>
+                            <li>WPF / XAML</li>
+                            <li>SQL Server</li>
+                        </ul>
+                    </footer>
+                </article>
 
-            <div class="card-body">
-                <p class="project-type-label" data-i18n="proj_type_academic">Projet Académique</p>
-                <p data-i18n="proj_2_desc">Réinterprétation du jeu Tetris en C++. Gestion mémoire manuelle, collisions et logique de grille.</p>
-            </div>
-
-            <footer>
-                <ul class="tech-stack-list">
-                    <li>C#</li>
-                    <li>Algorithmique</li>
-                </ul>
-            </footer>
-        </article>
-        
-        <article class="project-card">
-            <header>
-                <div class="card-top">
-                    <div class="folder-icon"><i class="far fa-folder-open"></i></div>
-                    <div class="project-links">
-                        <a href="https://github.com/scassen/SAE_201_LOXAM" target="_blank"><i class="fab fa-github"></i></a>
+                <article class="project-card">
+                    <header>
+                        <div class="card-top">
+                            <div class="folder-icon"><i class="far fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/Batleem/best_seller_amazon_analysis" class="btn-github-access" target="_blank">
+                                    <span data-i18n="btn_access">Accéder</span> <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 data-i18n="proj_amazon_title">Analyse Données Amazon</h4>
+                        <div class="project-meta">
+                            <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_amazon_date">Octobre 2025</span></span>
+                            <span class="meta-item"><i class="fas fa-user"></i> <span data-i18n="proj_amazon_context">Personnel</span></span>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <p class="project-type-label" data-i18n="proj_type_personal">Projet Personnel</p>
+                        <p data-i18n="proj_amazon_desc">Analyse d'un dataset CSV. Nettoyage et tri des données.</p>
                     </div>
-                </div>
-                <h4 data-i18n="proj_3_title">Gestion Loxam</h4>
+                    <footer>
+                        <ul class="tech-stack-list">
+                            <li>Python</li>
+                            <li>Pandas</li>
+                            <li>Data Processing</li>
+                        </ul>
+                    </footer>
+                </article>
 
-                <div class="project-meta">
-                    <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_3_date">2024</span></span>
-                    <span class="meta-item"><i class="fas fa-university"></i> <span data-i18n="proj_3_context">USMB (SAE)</span></span>
-                </div>
-            </header>
-
-            <div class="card-body">
-                <p class="project-type-label" data-i18n="proj_type_academic">Projet Académique</p>
-                <p data-i18n="proj_3_desc">Application lourde (Desktop) connectée. Architecture en couches et liaison de données (Data Binding).</p>
-            </div>
-
-            <footer>
-                <ul class="tech-stack-list">
-                    <li>C# .NET</li>
-                    <li>WPF / XAML</li>
-                    <li>SQL Server</li>
-                </ul>
-            </footer>
-        </article>
-        <article class="project-card">
-            <header>
-                <div class="card-top">
-                    <div class="folder-icon"><i class="far fa-folder-open"></i></div>
-                    <div class="project-links">
-                        <a href="https://github.com/Batleem/best_seller_amazon_analysis" target="_blank"><i class="fab fa-github"></i></a>
+                <article class="project-card">
+                    <header>
+                        <div class="card-top">
+                            <div class="folder-icon"><i class="far fa-folder-open"></i></div>
+                            <div class="project-links">
+                                <a href="https://github.com/Batleem/Website" class="btn-github-access" target="_blank">
+                                    <span data-i18n="btn_access">Accéder</span> <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h4 data-i18n="proj_site_title">Portfolio Interactif</h4>
+                        <div class="project-meta">
+                            <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_site_date">Nov 2025 - actif</span></span>
+                            <span class="meta-item"><i class="fas fa-user"></i> <span data-i18n="proj_site_context">Personnel</span></span>
+                        </div>
+                    </header>
+                    <div class="card-body">
+                        <p class="project-type-label" data-i18n="proj_type_personal">Projet Personnel</p>
+                        <p data-i18n="proj_site_desc">Développement de ce site. Traduction dynamique et animations.</p>
                     </div>
-                </div>
-                <h4 data-i18n="proj_amazon_title">Analyse Données Amazon</h4>
-                
-                <div class="project-meta">
-                    <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_amazon_date">2024</span></span>
-                    <span class="meta-item"><i class="fas fa-user"></i> <span data-i18n="proj_amazon_context">Personnel</span></span>
-                </div>
-            </header>
-
-            <div class="card-body">
-                <p class="project-type-label" data-i18n="proj_type_personal">Projet Personnel</p>
-                <p data-i18n="proj_amazon_desc">Analyse d'un dataset CSV. Nettoyage et tri des données.</p>
+                    <footer>
+                        <ul class="tech-stack-list">
+                            <li>HTML5 / CSS3</li>
+                            <li>Vanilla JS</li>
+                            <li>Canvas API</li>
+                        </ul>
+                    </footer>
+                </article>
             </div>
-
-            <footer>
-                <ul class="tech-stack-list">
-                    <li>Python</li>
-                    <li>Pandas</li>
-                    <li>Data Processing</li>
-                </ul>
-            </footer>
-        </article>
-        <article class="project-card">
-            <header>
-                <div class="card-top">
-                    <div class="folder-icon"><i class="far fa-folder-open"></i></div>
-                    <div class="project-links">
-                        <a href="https://github.com/Batleem/Website" aria-label="Lien Github" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <h4 data-i18n="proj_site_title">Portfolio Interactif</h4>
-                
-                <div class="project-meta">
-                    <span class="meta-item"><i class="far fa-calendar-alt"></i> <span data-i18n="proj_site_date">2025</span></span>
-                    <span class="meta-item"><i class="fas fa-user"></i> <span data-i18n="proj_site_context">Personnel</span></span>
-                </div>
-            </header>
-
-            <div class="card-body">
-                <p class="project-type-label" data-i18n="proj_type_personal">Projet Personnel</p>
-                <p data-i18n="proj_site_desc">Développement de ce site. Traduction dynamique et animations.</p>
-            </div>
-
-            <footer>
-                <ul class="tech-stack-list">
-                    <li>HTML5 / CSS3</li>
-                    <li>Vanilla JS</li>
-                    <li>Canvas API</li>
-                </ul>
-            </footer>
-        </article>
-
-    </div>
-</section>
+        </section>
 
         <section id="experience" class="panel container">
             <h3 class="section-header"><span class="hash">05.</span> <span data-i18n="title_exp">Expérience</span></h3>
@@ -310,7 +347,7 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <h4 data-i18n="exp_1_role">Projet Universitaire - USMB</h4>
-                            <span class="date">Sept 2025</span>
+                            <span class="date">Sept 2025 - recent</span>
                         </div>
                         <ul class="job-details">
                             <li data-i18n="exp_1_d1">Collaboration en équipe agile</li>
@@ -325,7 +362,7 @@
                     <div class="timeline-content">
                         <div class="timeline-header">
                             <h4 data-i18n="exp_2_role">Stage - La Poste Digital</h4>
-                            <span class="date">Jan - Fev 2024</span>
+                            <span class="date">Jan 2021</span>
                         </div>
                         <ul class="job-details">
                             <li data-i18n="exp_2_d1">Découverte environnement dev</li>
@@ -358,11 +395,19 @@
             <h3 class="section-header"><span class="hash">07.</span> <span data-i18n="title_contact">Contact</span></h3>
             <div class="contact-box">
                 <p data-i18n="contact_text">Prêt à rejoindre votre équipe technique.</p>
+                
                 <a href="mailto:martin.nosland@etu.univ-smb.fr" class="btn-primary big-btn">
                     martin.nosland@etu.univ-smb.fr
                 </a>
+                
                 <div class="footer-details">
                     <p>Annecy (74) • 06 18 52 75 63</p>
+                </div>
+
+                <div class="social-links" style="justify-content: center; margin-top: 20px; display: flex; gap: 20px;">
+                    <a href="https://github.com/Batleem" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:martin.nosland@etu.univ-smb.fr"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/martin-nosland/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </section>
