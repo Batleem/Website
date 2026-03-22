@@ -44,7 +44,7 @@ const dictionary = {
         btn_contact: "Me Contacter", btn_projects: "Voir Projets",
         
         title_profile: "Profil",
-        text_profile: "Étudiant en 2ème année de BUT Informatique (Parcours Data & IA), je cherche un stage de 10 à 12 semaines (Printemps 2026). Le développement est pour moi une véritable passion : j'aime passer mon temps libre à coder des scripts d'automatisation en Python, à explorer des architectures logicielles propres et à découvrir de nouveaux frameworks. Curieux et autonome, je suis prêt à m'investir à 100% dans vos projets.",
+        text_profile: "Étudiant en 2ème année de BUT Informatique (Parcours Data & IA), je recherche actuellement une alternance d'un an à partir de septembre 2026. Le développement est pour moi une véritable passion : j'aime passer mon temps libre à coder des scripts d'automatisation en Python, à explorer des architectures logicielles propres et à découvrir de nouveaux frameworks. Curieux et autonome, je suis prêt à m'investir à 100% dans vos projets.",
         
         interest_dev: "Dev & Tech",
 interest_manga: "Manga (20th Century Boys)",
@@ -111,7 +111,13 @@ interest_music: "Piano & Musique",
         exp_2_role: "Stage - La Poste Digital",
         exp_2_d1: "Découverte de l'environnement de développement logiciel",
         exp_2_d2: "Documentation technique et tests simples",
-        
+
+        exp_croma_role: "Stagiaire Développeur de Base de Données - Laboratoire CROMA",
+        exp_croma_date: "Printemps 2026 (10-12 semaines)",
+        exp_croma_d1: "Finalisation et mise en ligne d'une base de données dédiée au partage de paramètres matériaux THz (Projet SYSTERA).",
+        exp_croma_d2: "Développement des fonctionnalités de partage pour les résultats bruts et les bibliothèques d'images.",
+        exp_croma_d3: "Collaboration inter-laboratoires (IMS Bordeaux) pour le déploiement national de la plateforme.",
+
         btn_access: "Access",
 
         title_ref: "Références",
@@ -129,7 +135,7 @@ interest_music: "Piano & Musique",
         btn_contact: "Contact Me", btn_projects: "See Projects",
         
         title_profile: "Profile",
-        text_profile: "As a 2nd-year CS student (Data & AI path), I am actively seeking a 10-12 week internship for spring 2026. Coding is more than a major to me; it is a passion. In my spare time, I enjoy building Python automation scripts, designing clean software architectures, and exploring new tech stacks. I am eager to bring this curiosity and drive to your team.",
+        text_profile: "As a 2nd-year CS student (Data & AI path), I am currently seeking a one-year apprenticeship starting in September 2026. Coding is more than a major to me; it is a passion. In my spare time, I enjoy building Python automation scripts, designing clean software architectures, and exploring new tech stacks. I am eager to bring this curiosity and drive to your team.",
         
         interest_dev: "Dev & Tech",
 interest_manga: "Manga (20th Century Boys)",
@@ -149,7 +155,6 @@ interest_music: "Piano & Music",
         edu_1_school: "University of Savoy - IUT Annecy",
         edu_1_desc: "Specializing in Data Administration and AI",
 
-        // --- NEW ENIB ENTRY ---
         edu_enib_title: "Engineering Prep Cycle",
         edu_enib_date: "2023 - 2024",
         edu_enib_school: "ENIB - Brest National Engineering School",
@@ -199,6 +204,12 @@ interest_music: "Piano & Music",
         exp_2_d1: "Discovered the work environment of a software development team",
         exp_2_d2: "Assisted with documentation and simple testing",
 
+        exp_croma_role: "Database Developer Intern - CROMA Laboratory",
+        exp_croma_date: "Spring 2026 (10-12 weeks)",
+        exp_croma_d1: "Finalizing and launching an online database for sharing THz material parameters (SYSTERA Project).",
+        exp_croma_d2: "Implementing data sharing features for raw measurement results and THz image libraries.",
+        exp_croma_d3: "Cross-laboratory collaboration (IMS Bordeaux) for the national deployment of the platform.",
+        
         title_ref: "References",
         ref_1_role: "UML and SQL teacher",
         ref_2_role: "SQL and OOP associate professor",
